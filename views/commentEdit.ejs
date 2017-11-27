@@ -1,0 +1,15 @@
+<% include ./partials/header.ejs %>
+  <div class = "ui container main text segment">
+    <form id="delete" class="ui form" action="/campgrounds/<%= campground._id %>/comment/<%= comment._id %>?_method=PUT" method="POST">
+      <div class="field">
+        <label>Editing for <em><%= campground.name %></em></label>
+        <textarea name="comment[content]"><%= comment.content %></textarea>
+      </div>
+      <button class="ui button" type="submit" method="post">Edit!</button>
+    </form>
+    <a href="/campgrounds/<%= campground._id %>">Go back</a>
+    <form id="delete" action="/campgrounds/<%= campground._id %>/comment/<%= comment._id %>?_method=DELETE" method="POST">
+      <button class="ui right floated red button">Delete!</button>
+    </form>
+  </div>
+<% include ./partials/footer.ejs %>

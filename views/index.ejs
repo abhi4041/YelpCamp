@@ -1,0 +1,24 @@
+<% include ./partials/header.ejs %>
+
+  <div class = "ui container containers">
+    <div class="ui segment" id="heading">
+      <h1>
+        <span class="glyphicon glyphicon-tent" aria-hidden="true"></span> Welcome To YelpCamp!
+      </h1>
+      <p>View our hand-picked campgrounds from all over the world</p>
+      <a href="/campgrounds/new" class="ui blue toggle button">Add new campground</a>
+    </div>
+    <div class="ui grid">
+      <% campgrounds.forEach(function(campground){ %>
+        <div class="four wide column">
+          <div class="ui segment centered rounded image">
+            <h2> <%= campground.name %></h2>
+            <img src="<%= campground.image %>">
+            <p><%= campground.desc.substring(0, 100) %>...</p>
+            <a href="/campgrounds/<%= campground._id %>">More Info</a>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+<% include ./partials/footer.ejs %>

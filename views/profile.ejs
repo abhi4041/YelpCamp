@@ -1,0 +1,7 @@
+<% include ./partials/header.ejs %>
+  <div class = "ui container main text segment">
+    <h3>Username: <%= user.username %></h3>
+    <a class="ui green basic button" href="/campgrounds">Go to campgrounds!</a>
+    <a class="ui orange basic right floated button" href="/profile/<%= user._id %>/edit">Edit Profile!</a>
+  </div>
+<% include ./partials/footer.ejs %>

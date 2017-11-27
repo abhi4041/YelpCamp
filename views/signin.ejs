@@ -1,0 +1,20 @@
+<% include ./partials/header.ejs %>
+<div class = "ui container main text segment">
+  <form class="ui form" action="/signin" method="POST">
+    <div class="field">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Username">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Password">
+    </div>
+    <div class="field">
+      <label>Confirm Password</label>
+      <input type="password" name="confirmPassword" placeholder="Confirm Password">
+    </div>
+    <span><button class="ui button" type="submit" method="post">Signin!</button>
+    <a href="/login">&nbsp Already have an account?</a></span>
+  </form>
+  </div>
+<% include ./partials/footer.ejs %>

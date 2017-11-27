@@ -1,0 +1,43 @@
+i.icon {
+	font-size: 2em;
+}
+
+#showDiv {
+	margin-top: 5.0em;
+}
+
+#flashDiv {
+	margin-top: 5.0em;
+}
+
+.container.main {
+  margin-top: 7.0em;
+}
+
+#delete {
+  display: inline;
+}
+
+.containers {
+	margin-top: 7.0em;
+}
+
+.ui.image img {
+    margin: auto;
+    height: 200px;
+}
+
+#heading {
+	padding: 4em 3em;
+	background-color: #e5e5e5;
+}
+
+#commentsOrder {
+	float: right;
+	font-size: small;
+}
+
+#map {
+	height: 300px;
+	width: 300px;
+}

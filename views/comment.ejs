@@ -1,0 +1,12 @@
+<% include ./partials/header.ejs %>
+  <div class = "ui container main text segment">
+    <form class="ui form" action="/campgrounds/<%= campground._id %>/comment" method="POST">
+      <div class="field">
+        <label><%= campground.name %></label>
+        <textarea placeholder="Write your comment here..." name="comment[content]"></textarea>
+      </div>
+      <button class="ui button" type="submit" method="post">Post!</button>
+      <a href="/campgrounds/<%= campground._id %>">Go back</a>
+    </form>
+  </div>
+<% include ./partials/footer.ejs %>

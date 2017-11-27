@@ -1,0 +1,24 @@
+<% include ./partials/header.ejs %>
+  <div class = "ui container main text segment">
+    <form class="ui form" action="/profile/<%= user._id %>/edit" method="POST">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" name="user[username]" value="<%= user.username %>">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="text" name="user[email]" value="<%= user.email %>">
+      </div>
+      <div class="field">
+        <label>Want to change Password</label>
+        <label>Enter New Password</label>
+        <input type="password" name="user[password]" placeholder="New Password">
+      </div>
+      <div class="field">
+        <label>Confirm Password</label>
+        <input type="password" name="user[confirmPassword]" placeholder="Confirm Password">
+      </div>
+      <span><button class="ui button" type="submit" method="post">Save!!</button>
+    </form>
+  </div>
+<% include ./partials/footer.ejs %>

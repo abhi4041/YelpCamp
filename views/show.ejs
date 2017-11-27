@@ -1,0 +1,73 @@
+<% include ./partials/header.ejs %>
+<div class="ui container" id="showDiv">
+  <!-- First column -->
+  <div class="ui equal width grid">
+    <div class="left aligned three wide column">
+      <div class="ui vertical fluid menu">
+        <div class="item">
+          Section I
+        </div>
+        <div class="item">
+          Section II
+        </div>
+        <div class="item">
+          Section III
+        </div>
+      </div>
+    </div>
+    <!-- Second column -->
+    <div class="eight wide column">
+      <div class="ui main text segment">
+        <a href="/campgrounds">Back to Campgrounds</a>
+        <div class="ui huge header"><%= campground.name %></div>
+          <div class="ui right aligned header"><%= campground.location %></div>
+          <div class = "ui top attached segment">
+            <div class="item">
+              <img class="ui centered rounded image" src=" <%= campground.image %>">
+            </div>
+            <div class="description">
+              <p><%- campground.desc %></p>
+            </div>
+            <a class="ui orange basic button" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+            <form id="delete" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+              <button class="ui red right floated button">Delete</button>
+            </form>
+          </div>
+          <div class="ui segment">
+            <div class="ui large dividing header">Comments:
+                <% if(order === undefined || order == 0) { %>
+                    <a id="commentsOrder" href="/campgrounds/<%= campground._id %>?order=1">Oldest on Top</a></div>
+                <% } else { %>
+                    <a id="commentsOrder" href="/campgrounds/<%= campground._id %>?order=0">Newest on Top</a></div>
+                <% } %>
+            <a class="ui green basic button" href="/campgrounds/<%= campground._id %>/comment">Post a comment</a>
+            <% campground.comments.forEach(function(comment){ %>
+              <div class="ui segment" onclick="location.href='/campgrounds/<%= campground._id %>/comment/<%= comment._id %>';" style="cursor: pointer;">
+                <h4><%= comment.author %>: </h4>
+                <p><%= comment.content %></p>
+              </div>
+            <% }); %>
+          </div>
+      </div>
+    </div>
+    <!-- Third column -->
+    <div class="five wide column">
+        <div class="ui segment" id="map">
+            <script>
+              function initMap() {
+                  var coordinates = {lat: <%= lat %>, lng: <%= lng %>};
+                  var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 4,
+                      center: coordinates
+                  });
+                  var marker = new google.maps.Marker({
+                      position: coordinates,
+                      map: map
+                  });
+              }
+          </script>
+      </div>
+    </div>
+  </div>
+</div>
+<% include ./partials/footer.ejs %>
